@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2018",//指定ECMAScript 
+    "module": "esnext",
+    "lib": ["esnext", "dom"],
+    "declaration": true,// 生成.d.ts' 文件
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "strict": true,//啟用嚴格型別
+    "esModuleInterop": true, // 允許export(匯出) import(匯入)
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+  },
+  //需要編譯的文件
+  "include": ["src/**/*"],
+  //不需要編譯的文件
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

@@ -1,0 +1,31 @@
+{
+  "//": "json格式規定",
+  "$schema": "https://json.schemastore.org/prettierrc",
+
+  "//": "行尾不加分號",
+  "semi": false,
+
+  "//": "一個tab代表幾個分號",
+  "tabWidth": 2,
+
+  "//": "字串使用單引號",
+  "singleQuote": true,
+
+  "//": "單行最大字數",
+  "printWidth": 100,
+
+  "//": "結尾是否使用逗號",
+  "trailingComma": "all",
+
+  "//": "是否使用tab進行縮排",
+  "useTabs": false,
+
+  "//": "html空格敏感度",
+  "htmlWhitespaceSensitivity": "strict",
+
+  "//": "大括號對象內是否空格",
+  "bracketSpacing": true,
+
+  "//": "換行配置",
+  "proseWrap": "never"
+}
