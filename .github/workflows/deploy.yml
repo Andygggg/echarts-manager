@@ -30,7 +30,7 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACCESS_TOKEN }}  # 使用 ACCESS_TOKEN
           publish_branch: production  # 部署到 production 分支
           publish_dir: ./demo-dist  # 部署 demo-dist 目錄的內容
           commit_message: ${{ github.event.head_commit.message }}  # 使用原始提交訊息 
