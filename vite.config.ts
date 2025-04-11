@@ -5,7 +5,12 @@ export default defineConfig(({ command }) => {
   // 如果是 build 命令，使用庫模式構建
   if (command === 'build') {
     return {
-      plugins: [dts()],
+      plugins: [
+        dts({
+          include: ['src'], // 只包含 src 目錄
+          exclude: ['demo', '**/*.test.ts', '**/*.spec.ts'], // 排除 demo 目錄和測試文件
+        })
+      ],
       build: {
         outDir: 'dist', // 輸出目錄
         lib: {
@@ -20,7 +25,9 @@ export default defineConfig(({ command }) => {
               echarts: 'echarts'
             }
           }
-        }
+        },
+        emptyOutDir: true, // 清空輸出目錄
+        copyPublicDir: false // 不複製 public 目錄
       }
     };
   }

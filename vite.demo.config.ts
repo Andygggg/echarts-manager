@@ -22,4 +22,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  publicDir: 'demo/public', // 指定 public 目錄
 }); 
