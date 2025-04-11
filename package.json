@@ -29,7 +29,9 @@
   "keywords": [
     "echarts",
     "charts",
-    "typescript"
+    "typescript",
+    "data-visualization",
+    "chart-manager"
   ],
   "files": [
     "dist",
