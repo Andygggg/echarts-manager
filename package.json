@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight ECharts manager for managing multiple chart instances with ease.",
   "author": "Andy Wu",
   "private": false,
