@@ -1,1 +1,25 @@
-node_modules
+# 構建目錄
+/dist
+/demo-dist
+
+# 依賴目錄
+/node_modules
+
+# 環境檔案
+.env
+.env.local
+.env.*.local
+
+# 日誌
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 編輯器設定
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
