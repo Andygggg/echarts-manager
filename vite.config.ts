@@ -32,6 +32,5 @@ export default defineConfig(({ command }) => {
       port: 3000,
       open: true, // 自動打開瀏覽器
     },
-
   };
 });

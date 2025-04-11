@@ -21,6 +21,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:demo": "vite build --config vite.demo.config.ts",
+    "preview": "vite preview",
     "publishing": "yarn publish"
   },
   "type": "module",
