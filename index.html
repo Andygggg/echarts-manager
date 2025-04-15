@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ECharts Manager 使用說明</title>
-    <script type="module" crossorigin src="/echarts-manager/assets/index-COHC_wBn.js"></script>
+    <script type="module" crossorigin src="/echarts-manager/assets/index-DEr69CeM.js"></script>
     <link rel="modulepreload" crossorigin href="/echarts-manager/assets/echarts-Dn_kwerC.js">
     <link rel="stylesheet" crossorigin href="/echarts-manager/assets/index-Bq1mpTY6.css">
   </head>
@@ -179,7 +179,7 @@ if (chart) {
               <tbody>
                 <tr>
                   <td><code>spawnCharts</code></td>
-                  <td><code>Promise&lt;{ id: string; success: boolean }[]&gt;</code></td>
+                  <td><code>Promise&lt;{ id: string; echartsInstance: undefined | ECharts }[]&gt;</code></td>
                   <td>
                     <ul>
                       <li><code>configs</code>: { id: string; option: EChartsOption }[]</li>
@@ -189,7 +189,7 @@ if (chart) {
                 </tr>
                 <tr>
                   <td><code>updateChartOption</code></td>
-                  <td><code>Promise&lt;{ id: string; success: boolean }&gt;</code></td>
+                  <td><code>Promise&lt;{ id: string; success: boolean; echartsInstance: undefined | ECharts }&gt;</code></td>
                   <td>
                     <ul>
                       <li><code>id</code>: string</li>
@@ -201,7 +201,7 @@ if (chart) {
                 </tr>
                 <tr>
                   <td><code>updateAllCharts</code></td>
-                  <td><code>Promise&lt;{ id: string; success: boolean }[]&gt;</code></td>
+                  <td><code>Promise&lt;{ id: string; success: boolean; echartsInstance: undefined | ECharts }[]&gt;</code></td>
                   <td>
                     <ul>
                       <li><code>options</code>: Record&lt;string, EChartsOption&gt; | { id: string; option: EChartsOption }[]</li>
