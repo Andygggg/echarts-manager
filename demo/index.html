@@ -177,7 +177,7 @@ if (chart) {
               <tbody>
                 <tr>
                   <td><code>spawnCharts</code></td>
-                  <td><code>Promise&lt;{ id: string; success: boolean }[]&gt;</code></td>
+                  <td><code>Promise&lt;{ id: string; echartsInstance: undefined | ECharts }[]&gt;</code></td>
                   <td>
                     <ul>
                       <li><code>configs</code>: { id: string; option: EChartsOption }[]</li>
@@ -187,7 +187,7 @@ if (chart) {
                 </tr>
                 <tr>
                   <td><code>updateChartOption</code></td>
-                  <td><code>Promise&lt;{ id: string; success: boolean }&gt;</code></td>
+                  <td><code>Promise&lt;{ id: string; success: boolean; echartsInstance: undefined | ECharts }&gt;</code></td>
                   <td>
                     <ul>
                       <li><code>id</code>: string</li>
@@ -199,7 +199,7 @@ if (chart) {
                 </tr>
                 <tr>
                   <td><code>updateAllCharts</code></td>
-                  <td><code>Promise&lt;{ id: string; success: boolean }[]&gt;</code></td>
+                  <td><code>Promise&lt;{ id: string; success: boolean; echartsInstance: undefined | ECharts }[]&gt;</code></td>
                   <td>
                     <ul>
                       <li><code>options</code>: Record&lt;string, EChartsOption&gt; | { id: string; option: EChartsOption }[]</li>

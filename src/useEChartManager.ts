@@ -5,20 +5,20 @@ class EChartsManager {
   private chartInstances: Map<string, ECharts> = new Map();
   private resizeHandler: (() => void) | null = null;
 
-  //=========================生成圖表=
+  //=========================生成圖表===========================================
 
   /**
    * 生成單一表單
    * @param id dom元素
    * @param option 圖表參數
    */
-  private async spawnChart(id: string, option: EChartsOption): Promise<boolean> {
-    return new Promise<boolean>((resolve) => {
+  private async spawnChart(id: string, option: EChartsOption): Promise<undefined | ECharts> {
+    return new Promise<undefined | ECharts>((resolve) => {
       // 使用 nextTick 或 setTimeout 確保 DOM 已經準備好
       setTimeout(() => {
         const chartDom = document.getElementById(id);
         if (!chartDom) {
-          resolve(false); // 如果找不到 DOM，直接 resolve
+          resolve(undefined); // 如果找不到 DOM，直接 resolve
           return;
         }
 
@@ -28,7 +28,7 @@ class EChartsManager {
 
         chartInstance.setOption(option);
         this.chartInstances.set(id, chartInstance);
-        resolve(true);
+        resolve(chartInstance);
         return;
       }, 0);
     });
@@ -40,11 +40,11 @@ class EChartsManager {
    */
   public async spawnCharts(
     configs: { id: string; option: EChartsOption }[]
-  ): Promise<{ id: string; success: boolean }[]> {
+  ): Promise<{ id: string; echartsInstance: undefined | ECharts }[]> {
     const results = await Promise.all(
       configs.map(async ({ id, option }) => {
-        const success = await this.spawnChart(id, option);
-        return { id, success };
+        const msg = await this.spawnChart(id, option);
+        return { id, echartsInstance: msg };
       })
     );
     return results;
@@ -62,14 +62,14 @@ class EChartsManager {
     id: string,
     option: EChartsOption,
     opts?: SetOptionOpts
-  ): Promise<{ id: string; success: boolean }> {
-    return new Promise<{ id: string; success: boolean }>((resolve) => {
+  ): Promise<{ id: string; success: boolean; echartsInstance: undefined | ECharts }> {
+    return new Promise<{ id: string; success: boolean; echartsInstance: undefined | ECharts }>((resolve) => {
       const chart = this.chartInstances.get(id);
       if (chart) {
         chart.setOption(option, opts);
-        resolve({ id, success: true });
+        resolve({ id, success: true, echartsInstance: chart });
       } else {
-        resolve({ id, success: false });
+        resolve({ id, success: false, echartsInstance: chart });
       }
     });
   }
@@ -82,8 +82,8 @@ class EChartsManager {
    public async updateAllCharts(
     options: Record<string, EChartsOption> | { id: string; option: EChartsOption }[],
     opts?: SetOptionOpts
-  ): Promise<{ id: string; success: boolean }[]> {
-    const updatePromises: Promise<{ id: string; success: boolean }>[] = [];
+  ): Promise<{ id: string; success: boolean; echartsInstance: undefined | ECharts }[]> {
+    const updatePromises: Promise<{ id: string; success: boolean; echartsInstance: undefined | ECharts }>[] = [];
 
     // 判斷參數類型並處理
     if (Array.isArray(options)) {
